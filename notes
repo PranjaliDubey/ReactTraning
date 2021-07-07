@@ -1,0 +1,26 @@
+Props are raedonly
+inner object are mutabl
+props is object passed from parent to child
+
+conditonal rendering 
+
+
+Array as Object 
+
+conditional rendering
+list as Array
+
+state object constructor Component
+
+hooks
+useState
+useEffect
+componentDidMount,componentDidUpadte
+
+functional component
+
+
+Serach component
+array of cake
+display array of list
+array initial array using useState

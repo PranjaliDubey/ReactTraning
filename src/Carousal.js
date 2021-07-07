@@ -4,7 +4,7 @@ let image3 = '3.jpeg';
 
 export default function Carousal()
 {  
-   let carousalStyle={ height:500}
+   let carousalStyle={ height:400}
     return(
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
         <ol className="carousel-indicators">
