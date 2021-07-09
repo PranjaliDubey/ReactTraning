@@ -1,10 +1,28 @@
-export default function Navbar() {
-  function handleSearchInput() {
-    console.log("handleSearchInput");
+import Cakelist from "./cakelist";
+import Cake from "./Cake";
+export default function Navbar(props) {
+  let value1;
+
+  function handleSearchInput(e) {
+    value1 = e.target.value;
+    // // console.log("...",this.value)
+    //       Cakelist.filter((value,index)=>{
+    //         if(value) {
+    // return (
+    //   <Cake data={value} key={index}></Cake>
+    // )
+    // }}
+    // )
   }
-  let onSubmit = () => {
-    alert("Submit");
-  };
+  function onSubmit() {
+    props.fun(value1);
+    console.log("....", value1);
+    Cakelist.filter((value1, index) => {
+      if (value1) {
+        return <Cake data={value1} key={index}></Cake>;
+      }
+    });
+  }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="#">
@@ -41,7 +59,7 @@ export default function Navbar() {
           <button
             onClick={onSubmit}
             className="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
+            type="button"
           >
             Search
           </button>

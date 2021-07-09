@@ -24,3 +24,24 @@ Serach component
 array of cake
 display array of list
 array initial array using useState
+
+
+once the dom is render after that we want to render something we use state
+
+what is state .
+State is object which represents the data flow or concept.
+
+for accessing a state we need stateful component
+classbased component are stateful component
+
+
+First hook is useState()
+var [prop,setProperty]=useState()
+
+useEffect 
+
+https://apifromashu.herokuapp.com/api/login
+
+axios interceptors 
+
+

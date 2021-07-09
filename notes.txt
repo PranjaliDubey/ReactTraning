@@ -1,0 +1,341 @@
+What is react ?
+React is a ui library / frontend library for consuming data 
+react is only limited to hit apis 
+React can only request and show whatever response is given to that 
+
+Angualar is a framework 
+framework intself contains several libraries 
+React-router 
+fetch installl axios 
+service 
+redux
+
+summary react is just a small libraries
+angular is a very large framweor 
+
+angular some rules 
+if you r creating a component u have to register in app module
+in react simply create an use 
+ summary in a framweork we have to learn mehtodlogies of that farmeowrk 
+
+why do we use react 
+beacuse of a single major concep known as virtual dom 
+
+What is DOM ?
+Document object model 
+
+severl properties can be attahced to a single node 
+
+when i fired an event click 
+i updated the virtual dom (doing some code in reeact)
+difference algorithm called and browser dom  not got updated if any difference found
+
+// technical difference react vs angular 
+if the above three steps are built angular 
+in angular after clicking on that button change detetction will be called everytime on an event 
+
+
+but in react user triggers differ the algirithm 
+
+main concept is to figure out the change of data that happened in code so that we can show it browser 
+
+in react difference algoritm
+change detection mechanism 
+
+figuring out the change is in developers hand when we want want we update that thing
+but in angular on every even that change gets triggered 
+
+React is used to create a Single page Application 
+
+one body 
+will load other partial htmls/view will be loaded into body based on requirement 
+
+// the one which doesnt contain body 
+<div>
+
+
+// cash on delivery 
+
+// what can be features
+
+showing cakes 
+sarching cakes 
+login
+signp
+recovering password
+adding a new cake 
+details of cake 
+filtering 
+adding to cart 
+adding and order 
+showing previus users con
+
+Es 6 ia later version of ecmascript whihc have some new keywords 
+
+like let const , class , import export 
+
+
+taking all the varibales to the top pf execution 
+
+export xyz 
+export pqr
+
+
+so these 2 words given above can be imported in any file from syntax
+import {things} from "./file or module"
+import {xyz,pqr} from "./App.js"
+
+
+// why the **** are arrow functions used 
+// to preserver the lexical scope of this operator 
+
+// methods vd function
+
+when a function is returned from outer/ parent function it is called as closure function
+function parent(){
+
+    var name = "Ashu Lekhi
+    return function(){
+         console.log("name" ,  name)
+    }
+}
+
+wht is closure ?
+why closure
+
+closure functions have access to scoe of outer function
+because they still have the access to the data of parent even the parent is in heaven 
+var son = parent()
+//  parent gets called a scope created and whten it scope terminated 
+son()
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>   React  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+1) create react app 
+npx creat-react-app appname
+
+2) cd appname and npm start
+
+3) react goes to a file known as index.js and renders a component into index.html inside a div whos id is root
+
+
+From step 3 what the hell is Component 
+A component is just a view returned/rendered or  a function which returns jsx is known as component 
+
+what is JSX?
+javascript xml like syntax 
+or according to ashu extending the capabilities of js to understand html is known as jsx
+
+
+All about Component >>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+create a component
+import a component 
+use a component as html tag
+(NOTE : COMPONENT MUST START WITH CAPITAL CASE) while using it as a tag .. why ? otherwise it may be confusing with html tags 
+
+Styling component >>>>>>>>>>>>>>>>>>>>>>>
+style = "height:1392 ; widht :34234"
+in react we will write style={{height:"2232px" , height:"34px"}}
+Note in react it accept style objects  in curly braces so thats why i have written 
+{styleobj} styleobj is styleobj = {height:"32", width:"232"}
+
+// classes will give only warning 
+because classes ares used as className 
+
+// in react all the tags must be closed
+
+
+Step 1 create a build  npm run build
+step 3 copy build folderinto server folder 
+
+
+>>>>>>>>>>>>>>>>>>>. These commands are for server folder  >>>>
+git add .
+git commit -m "initial design create"
+git push heroku master
+
+
+
+// Cake componennt is showing the image name and price right tha task is to just dispaly some template 
+
+while desginign we should take care they should be independent/resuable
+wight now it is showing now we will pass data to component and it receive data and show it
+
+
+PROPS>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Props are the data passed to component but only from parent to child
+by using props we will the data to be rendered as props to cake component 
+
+NOTE : PROPS ARE READ ONLY
+
+props is an object passed from parent to child 
+>>>>>>>>>>>>>>>>>>>>>>> Conditional rednering >>>>>>>>>>>>>>>>>>>>>
+condiiotnal means based on somecondition we have to show somethig or not 
+for example if data is coming in props than only we have to render cake
+
+based on some condition we have returned the view to be displayed 
+
+if we dont want something to apperar on screen we prevented a gaurd infront of that and it will come only when guard allows example 
+{somegaurd && <Tag />}
+
+
+// once the dom is rendered after that if we want to change something we nee
+
+d state
+
+what is this state 
+state is an object which represents the data 
+
+flow or concept is what ever we wan to change on ui we will put that as a property on state and update the state
+ 
+
+ updating the state was that thing which  we discussed on 1 st day how that actual dom is updated 
+
+ // React vS Angular 
+
+ when we click screen does not update 
+ screen updates when ever developer wants in order to achiev ethat we need to call a function known as this.setState()
+
+
+
+ >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>. setState() >>>>>>>>>>>>>>>>>>>>>>>>>>
+ upon calling this function diferrence algo runs and browser rerenders the updated node in DOM
+
+ for accessing state we need stateful components 
+
+ classbased components are stateful components 
+
+ // screen is changing after rendering 
+ // we have to call setState in order to see the change 
+ // state is an object which contains data which can be changed 
+
+
+ // call setState()
+ // pass object in that 
+ // pass the updated property which u want to change
+
+ // even though component was not mounted (error is there ) but still  task is getting done 
+
+ // to correct his we must aware about lifecycle of component 
+ // we tak birth we get married we only listen to wife we die
+
+ coponent is also constructed mounted updated and unmounted  
+
+ constructor()
+ render()
+ componentDidMount()
+ componendDidUpdate()
+ componentWillUnmount()
+
+ if i want to make sure once my component is successfuly created than only i need to do something 
+
+ componentDidMount()
+
+ components are 2 types  - class based functional based 
+ class based are stateful  -  props and state
+ functional - props 
+
+
+ //////////////////////////  React Hooks .>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+ Wha t is react hooks 
+ React hooks are functions 
+ which are used to provide stateful behaviour to functional components 
+
+ first hook is useState()
+ var [prop, setProperty] = useState()
+
+ setProperty(newValue) will trigger the component re rendering and setting new value to state 
+
+
+ useEffect is behaving like componentDidMount and componentDidUpdate()
+
+ useEffect(function(){})
+ useEffect(function(){},['ganesh','shubham'])
+ what the hell is this array array is the name of props on which change i have to call use Effect 
+ array is list of dependecies to whom use effect is watching . what it mwans that use effect will only be called for the list of properties mentioned into array
+
+
+ / search component 
+ / array of cakes 
+ // display of array 
+<input> <button>
+console
+update the property(searchStrig)
+
+search(){
+    setSearchString(newVal)
+}
+
+.filter((each)=>{
+    return each.name==seachString
+})
+
+
+
+Endpoint (Api/Address) + request structure  , response object structure
+
+{name,email,password}
+{Name:"Ashu",Email:"ashu.lekhi",password:"test"}
+
+// fetch()
+// 3rd party package axios 
+? why axios it is internally using fetch itself and making some taska easy for us 
+
+// install 
+// import where ever required 
+import axios from "axios"
+
+call axios as a function -------- axios()
+inside this {} will come this object is metadata
+
+url, method -get data is not required , if methods is other than get data can be sent 
+
+
+axios always returns a promise 
+
+.then(firstfunction(){}, secondfunction(){})
+
+firstfunction is called in case of response , 2nd function is called in case of error 
+
+ /register
+
+ request object  -  {name , email , password }
+
+ u have to verify email . login 
+ th moment u signup u will receive an email for verifying account . go to ur email and click on verify than it will let u login
+
+ /register - {name,email,password} , post
+ /login - {email,password} , post 
+
+ // We have to send headers into api call 
+
+
+ axios({
+     method:"post",
+     data:formdata,
+     headers:{
+         authtoken:tokenwhichcameinloginreponse
+     }
+ })
+
+ As of now we have only set custom headers 
+
+ , but lets say for every request we neeed to do somethign 
+ that means before some one is going to backend for request i have to performa atask 
+
+ ??????????????????????? Interceptors ..............
+
+ What are interceptors 
+ interceptors are thr functions which van be called before every request and after every response 
+
+
+
+///// we are passing a function as a prop to child component 
+//// child is calling that function presne in parent , 
+
+// parent is having its own p
+
+
+lifting the state up

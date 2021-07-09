@@ -9,18 +9,40 @@ import SearchList from "./Search";
 import Cakelist from "./cakelist";
 import Loader from "react-loader-spinner";
 import ComponentDidMount from "./ComponetDidMount";
-
+import Login from "./Login";
+import FileUpload from "./FileUpload";
 function App() {
+  let checkspinner = true;
+  let [searchtext, setSearchtext] = useState();
+  const [cakeData, setCakeData] = useState(Cakelist);
+  let cakeArray
+  let function1 = function (serachString) {
+    setSearchtext(serachString);
+    console.log(".....",setSearchtext(serachString))
+    if (serachString !== "") {
+  
+      const cakeArray = Cakelist.filter((el) =>
+        el.name.toLowerCase().includes(serachString)
+      );
 
-    let checkspinner=true
-//   useEffect(() => {
-//     // Update the document title using the browser API
+      console.log(cakeArray);
+      setCakeData(cakeArray);
+      // return { cakeArray };
+    } else {
+      // return true;
+      // alert("in else")
+      cakeArray = Cakelist;
+      setCakeData(cakeArray);
+    }
+  };
 
-//   });
+   let handleSearch = () => {
+
+  };
+
   setTimeout(() => {
-
-    checkspinner=false
-        }, 10000);
+    checkspinner = false;
+  }, 10000);
   return (
     <div className="App">
       <Loader
@@ -30,14 +52,18 @@ function App() {
         width={100}
         timeout={3000} //3 secs
       />
-      {checkspinner}
-{checkspinner && <div className="container-fluid">
-      <Navbar></Navbar>
-      <h2>Welcome to Nature world</h2>
-      <Carousal></Carousal>
-      <ComponentDidMount></ComponentDidMount>
-      <div class="row">
-{  Cakelist.map((ele,index)=>{
+      {/* {checkspinner} */}
+
+      {checkspinner && (
+        <div className="container-fluid">
+          <Navbar fun={function1}></Navbar>
+
+          <Login></Login>
+          <FileUpload></FileUpload>
+          <Carousal></Carousal>
+          <ComponentDidMount></ComponentDidMount>
+          <div class="row">
+{  cakeData.map((ele,index)=>{
     return(  
 
   <Cake data={ele} key={index}></Cake>
@@ -46,12 +72,11 @@ function App() {
 })}
 </div>
 
-    
+         
 
-      {/* <SearchList> </SearchList> */}
-
-    </div>
-    }
+          {/* <SearchList serarchQuery={cakeData}> </SearchList> */}
+        </div>
+      )}
     </div>
   );
 }

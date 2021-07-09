@@ -2,7 +2,6 @@
 
 let Cake=(props)=>
 {
-  console.log(props)
   return(
     <div className="card mt-3 ml-3" style={{width: 18+'rem'}}>
         <img src={props.data.image}className="card-img-top" alt="..." height="250px"  />
