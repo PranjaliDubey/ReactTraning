@@ -1,5 +1,7 @@
 import Cakelist from "./cakelist";
 import Cake from "./Cake";
+import { BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
+
 export default function Navbar(props) {
   let value1;
 
@@ -15,13 +17,14 @@ export default function Navbar(props) {
     // )
   }
   function onSubmit() {
-    props.fun(value1);
-    console.log("....", value1);
-    Cakelist.filter((value1, index) => {
-      if (value1) {
-        return <Cake data={value1} key={index}></Cake>;
-      }
-    });
+    // props.fun(value1);
+    console.log("....", props);
+    props.history.push("/search")
+    // Cakelist.filter((value1, index) => {
+    //   if (value1) {
+    //     return <Cake data={value1} key={index}></Cake>;
+    //   }
+    // });
   }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -66,9 +69,9 @@ export default function Navbar(props) {
         </form>
         <div className="form-inline my-2 my-lg-0">
           {true && (
-            <button className="btn btn-primary my-2 my-sm-0 ml-2" type="button">
+             <Link to="/login"><button className="btn btn-primary my-2 my-sm-0 ml-2" type="button">
               Login
-            </button>
+            </button></Link>
           )}
           {false && (
             <button className="btn btn-danger my-2 my-sm-0 ml-2" type="button">

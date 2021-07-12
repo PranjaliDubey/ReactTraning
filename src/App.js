@@ -11,72 +11,107 @@ import Loader from "react-loader-spinner";
 import ComponentDidMount from "./ComponetDidMount";
 import Login from "./Login";
 import FileUpload from "./FileUpload";
+import { BrowserRouter as Router, Route ,Switch} from "react-router-dom";
+import Home from "./Home";
+import CakeDetails from "./cakeDetails";
+import CakesRouting from "./CakesRouting";
+import SignUp from "./SignUp"
+
+
+
+
 function App() {
+
+  let [searchtext, setSearchtext] = useState("");
+  let function1 = function (searchstring) {
+    setSearchtext(searchstring);
+  };
+  useEffect(() => {}, []);
+
+  // eslint-disable-next-line no-undef
+  // state = {
+  //   loading: true,
+  // };
+  // componentDidMount() {
+  //   this.fakeRequest().then(() => {
+  //     const el = document.querySelector(".loader-container");
+  //     if (el) {
+  //       el.remove(); // removing the spinner element
+  //       this.setState({ loading: false }); // showing the app
+  //     }
+  //   });
+  // }
+
+  // fakeRequest = () => {
+  //   return new Promise((resolve) => setTimeout(() => resolve(), 2500));
+  // };
+  const [isLoading, setLoading] = useState(true);
+
+  function fakeRequest() {
+    return new Promise(resolve => setTimeout(() => resolve(), 5000));
+  }
+
+  useEffect(() => {
+    fakeRequest().then(() => {
+      const el = document.querySelector(".loader-container");
+      if (el) {
+        el.remove();
+        setLoading(!isLoading);
+      }
+    });
+  }, []);
+ 
   let checkspinner = true;
-  let [searchtext, setSearchtext] = useState();
   const [cakeData, setCakeData] = useState(Cakelist);
-  let cakeArray
-  let function1 = function (serachString) {
-    setSearchtext(serachString);
-    console.log(".....",setSearchtext(serachString))
-    if (serachString !== "") {
-  
-      const cakeArray = Cakelist.filter((el) =>
-        el.name.toLowerCase().includes(serachString)
-      );
 
-      console.log(cakeArray);
-      setCakeData(cakeArray);
-      // return { cakeArray };
-    } else {
-      // return true;
-      // alert("in else")
-      cakeArray = Cakelist;
-      setCakeData(cakeArray);
-    }
-  };
-
-   let handleSearch = () => {
-
-  };
 
   setTimeout(() => {
     checkspinner = false;
   }, 10000);
+
+  const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
+    if (isLoading) {
+      return <div style={style}>
+        <Loader
+      className="d-flex flex-direction-column"
+      type="ThreeDots"
+      color="#00BFFF"
+      height={100}
+      width={100}
+      timeout={1000000} 
+    /> 
+        </div> //app is not ready (fake request is in process)  
+    }
   return (
+
+
     <div className="App">
-      <Loader
-        type="ThreeDots"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000} //3 secs
-      />
-      {/* {checkspinner} */}
+          <Router>
 
-      {checkspinner && (
-        <div className="container-fluid">
+             <div className="container-fluid">
           <Navbar fun={function1}></Navbar>
-
-          <Login></Login>
-          <FileUpload></FileUpload>
-          <Carousal></Carousal>
-          <ComponentDidMount></ComponentDidMount>
+          <Switch>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/login" component={Login}/>
+          <Route exact path="/addFile" component={FileUpload}/>
+          <Route exact path="/register" component={SignUp}/>
+          {/* <Carousal></Carousal> */}
+          {/* <ComponentDidMount></ComponentDidMount> */}
+          <Route exact path="/cake">
           <div class="row">
-{  cakeData.map((ele,index)=>{
-    return(  
-
-  <Cake data={ele} key={index}></Cake>
-
-  )
-})}
-</div>
-
-         
-
+            {cakeData.map((ele, index) => {
+              return <Cake data={ele} key={index}></Cake>;
+            })}
+          </div>
+          </Route>
+          <Route exact path="/cake/:cakeid"  component={CakeDetails}></Route>
+          <Route exact path="/search"  component={CakesRouting}>
+            </Route>
+        </Switch>
           {/* <SearchList serarchQuery={cakeData}> </SearchList> */}
         </div>
-      )}
+      
+      </Router>
     </div>
   );
 }

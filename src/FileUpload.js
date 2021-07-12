@@ -40,10 +40,13 @@ class FileUpload extends Component {
   // file upload is complete
   render() {
     return (
-      <div>
-        <div>
-          <input type="file" className="mb-3" onChange={this.onFileChange} />
-          <button class="btn btn-success mb-3" onClick={this.onFileUpload}>Upload!</button>
+      <div className="row">
+        <div className="col-md-8 offset-md-4" >
+          <form className="w-50">
+            <label> <b>Please Select File</b></label>
+          <input type="file" className="mb-3 form-control" onChange={this.onFileChange} />
+          <button class="btn btn-success mb-3 form-control"  onClick={this.onFileUpload}>Upload!</button>
+          </form>
         </div>
        
       </div>
